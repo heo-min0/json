@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo">p tag</p>
+<button type="button" onclick="loadXMLDoc()">내용변경</button>
+
+<script type="text/javascript">
+let xhttp = new XMLHttpRequest(); // xml파일읽기
+
+function loadXMLDoc() {
+	xhttp.onreadystatechange = function () {
+		//console.log(this.responseText); // 응답
+		//console.log(this.status);
+		//console.log(this.readyState);
+		
+		if(this.readyState == 4 && this.status == 200){
+			document.getElementById("demo").innerHTML = this.responseText;
+		}
+	}
+	xhttp.open("GET", "test.txt", true);
+	xhttp.send();
+}
+
+</script>
+
+</body>
+</html>

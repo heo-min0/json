@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 책 5제목title저자author가격pricexml,json파일제작parsing 데이터시각화 table -->
+
+<div id="ta"></div>
+
+<script type="text/javascript">
+let xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+	if (this.readyState == 4 && this.status == 200) {
+		booksData(this);
+	}
+}
+xhttp.open("GET", "book.xml", true);
+xhttp.send();
+
+function booksData(xml) {
+	let arr, txt, xmlDoc;
+	txt = "";
+	
+	xmlDoc = xml.responseXML;
+	
+	let table = "<table border='1'>"
+	table += "<tr><th>제목</th><th>저자</th><th>가격</th></tr>"
+	arr = xmlDoc.getElementsByTagName("book");
+	for (var j = 0; j < arr.length; j++) {
+		table += "<tr>";
+		for (i = 0; i < arr[j].childNodes.length; i++) {
+			if (i%2==1) {
+				txt = arr[j].childNodes[i].childNodes[0].nodeValue;
+				table += "<td>"+ txt +"</td>";
+			}
+		}
+		table += "</tr>";
+	}
+	table += "</table>";
+	
+	document.getElementById("ta").innerHTML = table
+}
+
+</script>
+
+</body>
+</html>

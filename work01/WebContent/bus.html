@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="demo"></div>
+
+<script type="text/javascript">
+let xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+	if (xhttp.readyState == 4 && xhttp.status == 200) {
+		jsonFunc(this.responseText);
+	}
+}
+xhttp.open("GET", "서울시 버스노선.json", true);
+xhttp.send();
+
+function jsonFunc(resp) {
+	let json = JSON.parse(resp);
+	//alert(json);
+	//alert(json.DESCRIPTION);
+	//alert(json.DESCRIPTION.EIGHTEEN_RIDE_NUM);
+	//alert( json.DATA );
+	//alert( json.DATA.length );
+	//alert( json.DATA[0].eighteen_ride_num );
+	//alert( json.DATA[0].eighteen_ride_num );
+	
+	let title = json.DESCRIPTION; //키 정보 저장
+	let datas = json.DATA; // value 저장
+	
+	let table = "<table border='1'>";
+	table += "<tr>";
+	
+	table += "<th>번호</th>";
+	table += "<th>"+ title.EIGHTEEN_RIDE_NUM +"</th>";
+	table += "<th>"+ title.SEVENTEEN_RIDE_NUM +"</th>";
+	table += "<th>"+ title.EIGHTEEN_ALIGHT_NUM +"</th>";
+	table += "<th>"+ title.BUS_STA_NM +"</th>";
+	table += "<th>"+ title.TEN_RIDE_NUM +"</th>";
+	
+	table += "</tr>";
+	
+	for (i = 0; i < 10; i++) {
+		table += "<tr>";
+		
+		table += "<th>"+ (i+1) +"</th>";
+		table += "<td>"+ datas[i].eighteen_ride_num +"</td>";
+		table += "<td>"+ datas[i].seventeen_ride_num +"</td>";
+		table += "<td>"+ datas[i].eighteen_alight_num +"</td>";
+		table += "<td>"+ datas[i].bus_sta_nm +"</td>";
+		table += "<td>"+ datas[i].ten_ride_num +"</td>";
+		
+		table += "</tr>";
+	}
+	
+	table += "</table>";
+	
+	document.getElementById("demo").innerHTML = table;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<booklist>
+	<book>
+		<title>magic recipe</title>
+		<author>아하부장</author>
+		<price>17500</price>
+	</book>
+	<book>
+		<title>달러구트 꿈 백화점</title>
+		<author>이미예</author>
+		<price>13800</price>
+	</book>
+	<book>
+		<title>좋은 사람에게만 좋은 사람이면 돼</title>
+		<author>김재식</author>
+		<price>14800</price>
+	</book>
+	<book>
+		<title>2030축의 전환</title>
+		<author>마우로 F.기옌</author>
+		<price>18000</price>
+	</book>
+	<book>
+		<title>모래알만 한 진실이라도</title>
+		<author>박완서</author>
+		<price>16000</price>
+	</book>
+</booklist>

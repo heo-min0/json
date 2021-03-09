@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="demo"></div>
+
+<script type="text/javascript">
+let xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+	if (xhttp.readyState == 4 && xhttp.status == 200) {
+		jsonFunc(this.responseText);
+	}
+}
+xhttp.open("GET", "book.json", true);
+xhttp.send();
+
+function jsonFunc(respTxt) {
+	
+	let json = JSON.parse(respTxt);
+	let a = Object(books).l
+	alert(json.length);
+	
+	/* let val;
+	for (i = 0; i < json.books.length; i++) {
+		val = json.books["book"+i];
+		alert(val.title);
+	} */
+}
+
+</script>
+
+
+</body>
+</html>

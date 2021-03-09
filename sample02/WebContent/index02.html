@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if (xhttp.readyState == 4 && xhttp.status == 200) {
+		jsonFunc(this.responseText);
+		/* this = xhttp */
+	}
+}
+xhttp.open("GET", "data.json", true);
+xhttp.send();
+
+function jsonFunc(respTxt) {
+	//alert(respTxt);
+	let json = JSON.parse(respTxt);
+	json.books
+	alert(json.length);
+	
+	let txt = "";
+	
+	/* let array = [11,22,33];
+	for (i in array) {
+		console.log(array[i]);
+	} */
+	
+	/* for (i = 0; i < json.length; i++) {
+		for (key in json[i]) {
+			txt += key + ":" + json[i][key];
+		}
+		txt += "<br>";
+	} */
+	
+	for (i = 0; i < json.length; i++) {
+		txt += json[i].name + " " +
+			   json[i].age + " " +
+			   json[i].address + " " +
+			   json[i].height + "<br>";
+	}
+	
+	document.getElementById("demo").innerHTML = txt; 
+}
+
+
+</script>
+
+
+
+</body>
+</html>
+
+

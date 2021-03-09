@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+let jsonData = [
+	{"name" : "홍길동",
+	 "age"  : 24 },
+	{"name" : "성춘향",
+	 "age"  : 16 },
+	{"name" : "일지매",
+	 "age"  : 22 }
+];
+
+document.getElementById("demo").innerHTML = jsonData[1].name + " " + jsonData[1].age;
+
+let arrText = '{ "name":"홍길동", "age":24, "주소":"서울시"}'
+//alert(arrText)
+let jsonObj = JSON.parse(arrText); // String -> Json
+//alert(jsonObj);
+
+let strObj = JSON.stringify(jsonObj); // Json -> Strin
+//alert(strObj);
+
+document.getElementById("demo").innerHTML = jsonObj.name + " " +jsonObj.주소; 
+
+</script>
+
+
+</body>
+</html>
